@@ -1,20 +1,21 @@
 
 import _ from 'lodash';
-import './style.css';
-import Icon from './wz.png';
+import printMe from './print.js';
+import './styles.css';
 
 function component() {
 	const element = document.createElement('div');
+	const btn = document.createElement('button');
 
 	element.innerHTML = _.join(['hello', 'webpack'], ' ');
-	element.classList.add('hello')
 
-	//将图像添加到我们已经存在的div中
-	var myIcon = new Image();
-	myIcon.src = Icon;
-	element.appendChild(myIcon);
+	btn.innerHTML = '点击这里，然后查看console!';
+	btn.onclick = printMe;
 
-	return element
+	element.appendChild(btn)
+
+	return element;
 }
 
+console.log(module.hot)
 document.body.appendChild(component());
